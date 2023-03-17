@@ -26,8 +26,8 @@
         <tr *ngFor="let car of cars;index as i">
           <td>{{i +1}}</td>
           <td>{{car.numberPlate}}</td>
-          <td>{{car.type}}</td>
-          <td>{{car.name}}</td>
+          <td>{{car.carType.name}}</td>
+          <td>{{car.carCompany.name}}</td>
           <td>{{car.startCity.name}}</td>
           <td>{{car.endCity.name}}</td>
           <td>{{car.phoneNumber}}</td>

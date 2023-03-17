@@ -8,8 +8,8 @@ import {Car} from '../../../model/car';
 import Swal from 'sweetalert2';
 import {CarTypeService} from '../../../service/car-type/car-type.service';
 import {CarCompanyService} from '../../../service/car-company/car-company.service';
-import {CarType} from "../../../model/car-type";
-import {CarCompany} from "../../../model/car-company";
+import {CarType} from '../../../model/car-type';
+import {CarCompany} from '../../../model/car-company';
 
 @Component({
   selector: 'app-car-edit',
@@ -43,9 +43,9 @@ export class CarEditComponent implements OnInit {
         this.getAllCarType();
         this.formEdit = new FormGroup({
           id: new FormControl(this.carEdit.id),
-          numberPlate: new FormControl(this.carEdit.numberPlate),
-          type: new FormControl(this.carEdit.type, Validators.required),
-          name: new FormControl(this.carEdit.name),
+          numberPlate: new FormControl(this.carEdit.numberPlate, Validators.required),
+          carType: new FormControl(this.carTypes.find(i => i.id === car.carType.id), Validators.required),
+          carCompany: new FormControl(this.carCompanies.find(i => i.id === car.carCompany.id), Validators.required),
           startCity: new FormControl(this.cities.find(i => i.id === car.startCity.id), Validators.required),
           endCity: new FormControl(this.cities.find(i => i.id === car.startCity.id), Validators.required),
           phoneNumber: new FormControl(this.carEdit.phoneNumber, [Validators.required, Validators.pattern('^(0)(9[0137]\\d{7})$')]),
@@ -78,7 +78,6 @@ export class CarEditComponent implements OnInit {
   onSubmit() {
     const car = this.formEdit.value;
     this.carService.editById(car.id, car).subscribe(next => {
-      console.log('Thành công');
       this.route.navigateByUrl('/cars/list');
       Swal.fire({
         position: 'top-end',
@@ -87,7 +86,15 @@ export class CarEditComponent implements OnInit {
         showConfirmButton: false,
         timer: 1500
       });
+      console.log(next);
     }, error => {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Chỉnh sửa thất bại',
+        showConfirmButton: false,
+        timer: 1500
+      });
       console.log('Thất bại');
     });
   }

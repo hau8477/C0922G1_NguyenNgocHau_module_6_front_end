@@ -11,8 +11,18 @@
               <div>
                 <label>Số xe</label>
                 <input type="text" class="form-control" formControlName="numberPlate">
+                <span class="text-danger"
+                      *ngIf="
+                    formCreate.controls.numberPlate?.touched &&
+                    formCreate.controls.numberPlate?.errors?.required">
+                    Phải nhập trường này.
+                </span>
+              </div>
+              <div>
                 <label>Loại xe</label>
-                <input type="text" class="form-control" formControlName="type">
+                <select formControlName="carType" class="form-select">
+                  <option *ngFor="let type of carTypes" [ngValue]="type">{{type.name}}</option>
+                </select>
                 <span class="text-danger"
                       *ngIf="
                     formCreate.controls.type?.touched &&
@@ -22,8 +32,10 @@
               </div>
 
               <div>
-                <label>Tên nhà xe</label>
-                <input type="text" class="form-control" formControlName="name">
+                <label>Nhà xe</label>
+                <select formControlName="carCompany" class="form-select">
+                  <option *ngFor="let carCompany of carCompanies" [ngValue]="carCompany">{{carCompany.name}}</option>
+                </select>
                 <span class="text-danger"
                       *ngIf="
                     formCreate.controls.name?.touched &&

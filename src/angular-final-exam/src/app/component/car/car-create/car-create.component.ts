@@ -2,10 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {City} from '../../../model/city';
 import {CityService} from '../../../service/city/city.service';
-import {CarTypeService} from "../../../service/car-type/car-type.service";
-import {CarCompanyService} from "../../../service/car-company/car-company.service";
-import {CarType} from "../../../model/car-type";
-import {CarCompany} from "../../../model/car-company";
+import {CarTypeService} from '../../../service/car-type/car-type.service';
+import {CarCompanyService} from '../../../service/car-company/car-company.service';
+import {CarType} from '../../../model/car-type';
+import {CarCompany} from '../../../model/car-company';
+import {CarService} from '../../../service/car/car.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-car-create',
@@ -20,14 +22,15 @@ export class CarCreateComponent implements OnInit {
 
   constructor(private cityService: CityService,
               private carTypeService: CarTypeService,
-              private carCompanyService: CarCompanyService) {
+              private carCompanyService: CarCompanyService,
+              private carService: CarService) {
   }
 
   ngOnInit(): void {
     this.formCreate = new FormGroup({
-      numberPlate: new FormControl(''),
-      type: new FormControl('', Validators.required),
-      name: new FormControl(''),
+      numberPlate: new FormControl('', Validators.required),
+      carType: new FormControl('', Validators.required),
+      carCompany: new FormControl('', Validators.required),
       startCity: new FormControl('', Validators.required),
       endCity: new FormControl('', Validators.required),
       phoneNumber: new FormControl('', [Validators.required, Validators.pattern('^(0)(9[0137]\\d{7})$')]),
@@ -59,5 +62,25 @@ export class CarCreateComponent implements OnInit {
   }
 
   onSubmit() {
+    const car = this.formCreate.value;
+    this.carService.save(car).subscribe(next => {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Thêm mới thành công',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      console.log(next);
+    }, error => {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Thêm mới thất bại',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      console.log(error);
+    });
   }
 }

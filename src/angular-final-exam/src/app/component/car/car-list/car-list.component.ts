@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CarService} from '../../../service/car/car.service';
 import {Car} from '../../../model/car';
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-car-list',
@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 })
 export class CarListComponent implements OnInit {
   cars: Car[] = [];
+  data: any;
 
   constructor(private carService: CarService) {
   }
@@ -19,8 +20,9 @@ export class CarListComponent implements OnInit {
   }
 
   getAll() {
-    this.carService.getAll().subscribe(cars => {
-      this.cars = cars;
+    this.carService.getAll().subscribe(data => {
+      this.data = data;
+      this.cars = this.data.content;
     });
   }
 

@@ -9,11 +9,11 @@
           <form novalidate *ngIf="formEdit" [formGroup]="formEdit" (ngSubmit)="onSubmit()">
             <div class="form-group">
               <div>
-                <input type="number" hidden>
+                <input type="number" formControlName="id" hidden>
                 <label>Số xe</label>
                 <input type="text" class="form-control" disabled formControlName="numberPlate">
                 <label>Loại xe</label>
-                <input type="text" class="form-control" formControlName="type">
+                <input type="text" class="form-control" formControlName="carType">
                 <span class="text-danger"
                       *ngIf="
                     formEdit.controls.type?.touched &&
@@ -23,8 +23,8 @@
               </div>
 
               <div>
-                <label>Tên nhà xe</label>
-                <input type="text" class="form-control" formControlName="name">
+                <label>Nhà xe</label>
+                <input type="text" class="form-control" formControlName="carCompany">
                 <span class="text-danger"
                       *ngIf="
                     formEdit.controls.name?.touched &&
