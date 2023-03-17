@@ -1,0 +1,88 @@
+{
+  "car": [
+    {
+      "id": 1,
+      "numberPlate": 1222,
+      "type": "Ghế ngồi",
+      "name": "Hoàng Long",
+      "startCity": {
+        "id": 1,
+        "name": "Đà nẵng"
+      },
+      "endCity": {
+        "id": 3,
+        "name": "Quảng Bình"
+      },
+      "phoneNumber": "0937865789",
+      "email": "hoanglong@gmail.com",
+      "startHour": "15:20",
+      "endHour": "19:00"
+    },
+    {
+      "id": 2,
+      "numberPlate": 2311,
+      "type": "Giường nằm",
+      "name": "Mai Linh",
+      "startCity": {
+        "id": 1,
+        "name": "Đà nẵng"
+      },
+      "endCity": {
+        "id": 4,
+        "name": "Quảng Nam"
+      },
+      "phoneNumber": "0974563456",
+      "email": "mailinh123@gmail.com",
+      "startHour": "20:20",
+      "endHour": "19:00"
+    },
+    {
+      "id": 3,
+      "numberPlate": 1928,
+      "type": "Giường nằm",
+      "name": "Phương Trang",
+      "startCity": {
+        "id": 1,
+        "name": "Đà nẵng"
+      },
+      "endCity": {
+        "id": 5,
+        "name": "Đắc Nông"
+      },
+      "phoneNumber": "0976578256",
+      "email": "phuongtrang@gmail.com",
+      "startHour": "7:20",
+      "endHour": "17:00"
+    }
+  ],
+  "city": [
+    {
+      "id": 1,
+      "name": "Đà Nẵng"
+    },
+    {
+      "id": 2,
+      "name": "Quảng Trị"
+    },
+    {
+      "id": 3,
+      "name": "Quảng Bình"
+    },
+    {
+      "id": 4,
+      "name": "Quảng Nam"
+    },
+    {
+      "id": 5,
+      "name": "Đắc Nông"
+    },
+    {
+      "id": 6,
+      "name": "Sài Gòn"
+    },
+    {
+      "id": 7,
+      "name": "Hà Nội"
+    }
+  ]
+}

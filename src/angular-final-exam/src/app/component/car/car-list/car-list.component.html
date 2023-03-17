@@ -1,0 +1,48 @@
+<div class="container-fluid my-5" style="background-color: #f8f9fa;">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+      <h1 class="text-center">Danh sách các xe đăng ký ở bến xe XYZ</h1>
+      <div class="d-flex justify-content-end mb-3">
+        <a class="btn btn-primary" routerLink="/cars/create" role="button">Thêm mới</a>
+      </div>
+      <table class="table table-bordered">
+        <thead class="table-light">
+        <tr>
+          <th scope="col">STT</th>
+          <th scope="col">Số xe</th>
+          <th scope="col">Loại xe</th>
+          <th scope="col">Tên nhà xe</th>
+          <th scope="col">Điểm đi</th>
+          <th scope="col">Điểm đến</th>
+          <th scope="col">Số điện thoại</th>
+          <th scope="col">Email</th>
+          <th scope="col">Giờ đi</th>
+          <th scope="col">Giờ đến</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let car of cars;index as i">
+          <td>{{i +1}}</td>
+          <td>{{car.numberPlate}}</td>
+          <td>{{car.type}}</td>
+          <td>{{car.name}}</td>
+          <td>{{car.startCity.name}}</td>
+          <td>{{car.endCity.name}}</td>
+          <td>{{car.phoneNumber}}</td>
+          <td>{{car.email}}</td>
+          <td>{{car.startHour}}</td>
+          <td>{{car.endHour}}</td>
+          <td>
+            <a class="btn btn-warning" routerLink="/cars/edit/{{car.id}}" role="button">Sửa</a>
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)="getInfo(car.id, car.numberPlate)">Xóa</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
