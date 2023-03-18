@@ -12,8 +12,13 @@
                 <input type="number" formControlName="id" hidden>
                 <label>Số xe</label>
                 <input type="text" class="form-control" disabled formControlName="numberPlate">
+              </div>
+
+              <div>
                 <label>Loại xe</label>
-                <input type="text" class="form-control" formControlName="carType">
+                <select formControlName="carType" class="form-select">
+                  <option *ngFor="let type of carTypes" [ngValue]="type">{{type.name}}</option>
+                </select>
                 <span class="text-danger"
                       *ngIf="
                     formEdit.controls.type?.touched &&
@@ -24,7 +29,9 @@
 
               <div>
                 <label>Nhà xe</label>
-                <input type="text" class="form-control" formControlName="carCompany">
+                <select formControlName="carCompany" class="form-select">
+                  <option *ngFor="let carCompany of carCompanies" [ngValue]="carCompany">{{carCompany.name}}</option>
+                </select>
                 <span class="text-danger"
                       *ngIf="
                     formEdit.controls.name?.touched &&

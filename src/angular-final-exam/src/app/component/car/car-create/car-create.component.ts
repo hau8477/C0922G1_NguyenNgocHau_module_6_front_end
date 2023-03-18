@@ -8,6 +8,7 @@ import {CarType} from '../../../model/car-type';
 import {CarCompany} from '../../../model/car-company';
 import {CarService} from '../../../service/car/car.service';
 import Swal from 'sweetalert2';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-car-create',
@@ -23,10 +24,14 @@ export class CarCreateComponent implements OnInit {
   constructor(private cityService: CityService,
               private carTypeService: CarTypeService,
               private carCompanyService: CarCompanyService,
-              private carService: CarService) {
+              private carService: CarService,
+              private route: Router) {
   }
 
   ngOnInit(): void {
+    this.getAllCity();
+    this.getAllCarCompany();
+    this.getAllCarType();
     this.formCreate = new FormGroup({
       numberPlate: new FormControl('', Validators.required),
       carType: new FormControl('', Validators.required),
@@ -38,9 +43,6 @@ export class CarCreateComponent implements OnInit {
       startHour: new FormControl('', Validators.required),
       endHour: new FormControl('', Validators.required)
     });
-    this.getAllCity();
-    this.getAllCarCompany();
-    this.getAllCarType();
   }
 
   getAllCarType() {
@@ -63,6 +65,7 @@ export class CarCreateComponent implements OnInit {
 
   onSubmit() {
     const car = this.formCreate.value;
+    console.log(car);
     this.carService.save(car).subscribe(next => {
       Swal.fire({
         position: 'top-end',
@@ -71,6 +74,7 @@ export class CarCreateComponent implements OnInit {
         showConfirmButton: false,
         timer: 1500
       });
+      this.route.navigateByUrl('/cars/list');
       console.log(next);
     }, error => {
       Swal.fire({

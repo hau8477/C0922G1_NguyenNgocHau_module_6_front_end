@@ -33,21 +33,21 @@ export class CarEditComponent implements OnInit {
               private carCompanyService: CarCompanyService) {
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    await this.getAllCity();
+    await this.getAllCarCompany();
+    await this.getAllCarType();
     this.activatedRoute.paramMap.subscribe(paramMap => {
       this.idEdit = +paramMap.get('id');
       this.carService.findById(this.idEdit).subscribe(car => {
         this.carEdit = car;
-        this.getAllCity();
-        this.getAllCarCompany();
-        this.getAllCarType();
         this.formEdit = new FormGroup({
           id: new FormControl(this.carEdit.id),
           numberPlate: new FormControl(this.carEdit.numberPlate, Validators.required),
-          carType: new FormControl(this.carTypes.find(i => i.id === car.carType.id), Validators.required),
-          carCompany: new FormControl(this.carCompanies.find(i => i.id === car.carCompany.id), Validators.required),
-          startCity: new FormControl(this.cities.find(i => i.id === car.startCity.id), Validators.required),
-          endCity: new FormControl(this.cities.find(i => i.id === car.startCity.id), Validators.required),
+          carType: new FormControl(this.carTypes.find(i => i.id === this.carEdit.carType.id), Validators.required),
+          carCompany: new FormControl(this.carCompanies.find(i => i.id === this.carEdit.carCompany.id), Validators.required),
+          startCity: new FormControl(this.cities.find(i => i.id === this.carEdit.startCity.id), Validators.required),
+          endCity: new FormControl(this.cities.find(i => i.id === this.carEdit.startCity.id), Validators.required),
           phoneNumber: new FormControl(this.carEdit.phoneNumber, [Validators.required, Validators.pattern('^(0)(9[0137]\\d{7})$')]),
           email: new FormControl(this.carEdit.email, [Validators.required, Validators.pattern('^[\\w._%+-]+@[\\w.-]+\\.[A-Za-z]{2,}$')]),
           startHour: new FormControl(this.carEdit.startHour, Validators.required),
@@ -57,23 +57,18 @@ export class CarEditComponent implements OnInit {
     });
   }
 
-  getAllCity() {
-    this.cityService.getAll().subscribe(cities => {
-      this.cities = cities;
-    });
+  async getAllCity() {
+    this.cities = await this.cityService.getAll().toPromise();
   }
 
-  getAllCarType() {
-    this.carTypeService.getAll().subscribe(carTypes => {
-      this.carTypes = carTypes;
-    });
+  async getAllCarType() {
+    this.carTypes = await this.carTypeService.getAll().toPromise();
   }
 
-  getAllCarCompany() {
-    this.carCompanyService.getAll().subscribe(carCompanies => {
-      this.carCompanies = carCompanies;
-    });
+  async getAllCarCompany() {
+    this.carCompanies = await this.carCompanyService.getAll().toPromise();
   }
+
 
   onSubmit() {
     const car = this.formEdit.value;
