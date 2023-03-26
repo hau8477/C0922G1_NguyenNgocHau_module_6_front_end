@@ -1,0 +1,117 @@
+:root{
+    --success: #71FA92;
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    font-size: 16px;
+    width: 100%;
+    margin-right: 10px;
+    border-radius: 15px;
+}
+
+button {
+    height: 3rem;
+    width: 10rem;
+    background-color: transparent; /* Đặt màu nền cho button là transparent */
+    border: 2px solid #14a2b8; /* Đặt viền cho button */
+    color: #14a2b8; /* Đặt màu chữ cho button */
+    border-radius: 20px; /* Đặt bán kính của viền bo tròn */
+}
+
+button:hover {
+    background-color: #14a2b8; /* Đổi màu nền cho button khi hover */
+    color: #fff; /* Đổi màu chữ cho button khi hover */
+}
+
+select {
+    background-color: ghostwhite;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    font-size: 15px;
+    margin-right: 10px;
+    /*-webkit-appearance: none;*/
+    /*-moz-appearance: none;*/
+    /*appearance: none;*/
+    background-repeat: no-repeat;
+    cursor: pointer;
+    background-position: right center;
+    background-size: 16px;
+    border-radius: 15px;
+}
+
+
+.title {
+    margin-bottom: 20px;
+}
+
+.mg-top {
+    margin-top: 20px;
+}
+
+.bg {
+    background-color: ghostwhite;
+}
+
+
+.bd-left {
+    border-left: 1px solid black;
+}
+
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    background-color: white;
+}
+
+.bgc {
+    background-color: #14a2b8;
+}
+
+.fs{
+    font-size: 13px;
+}
+
+.fs-xs{
+    font-size: 10px;
+}
+
+.btnc{
+    width: 4rem;
+    height: 2rem;
+}
+
+.text-color{
+    color: #14a2b8;
+    font-weight: bold;
+}
+
+.shadow1 {
+    background-color: white;
+    box-shadow: 0 0 20px 0 #253365;
+}
+
+.img-card {
+    object-fit: contain;
+    width: 227.59px;
+    height: 284.2px;
+}
+
+.bga{
+    background-color: ghostwhite;
+}
+
+.bt-xl{
+    width: 30%;
+    height: 45px;
+    font-size: 15px;
+}

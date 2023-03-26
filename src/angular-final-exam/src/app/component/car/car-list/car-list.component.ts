@@ -11,18 +11,24 @@ import Swal from 'sweetalert2';
 export class CarListComponent implements OnInit {
   cars: Car[] = [];
   data: any;
+  page = 0;
+  totalPages = 0;
+  size = 5;
+  pageArray: number[] = [];
 
   constructor(private carService: CarService) {
   }
 
-  ngOnInit(): void {
-    this.getAll();
+  async ngOnInit() {
+    await this.getAll(this.page, this.size);
+    this.pageArray = Array(this.totalPages).fill(0).map((x, i) => i);
   }
 
-  getAll() {
-    this.carService.getAll().subscribe(data => {
+  async getAll(page: number, size: number) {
+    this.carService.getAll(page, size).subscribe(data => {
       this.data = data;
       this.cars = this.data.content;
+      this.totalPages = this.data.totalPages;
     });
   }
 
@@ -51,7 +57,7 @@ export class CarListComponent implements OnInit {
             'Bạn đã xóa 1 xe.',
             'success'
           );
-          this.getAll();
+          this.getAll(this.page, this.size);
         }, error => {
           swalWithBootstrapButtons.fire({
               title: 'Xóa không thành công!',
@@ -66,5 +72,24 @@ export class CarListComponent implements OnInit {
       ) {
       }
     });
+  }
+
+  next() {
+    if (this.page < this.totalPages) {
+      this.page++;
+    }
+    this.getAll(this.page, this.size);
+  }
+
+  prev() {
+    if (this.page > 0) {
+      this.page--;
+    }
+    this.getAll(this.page, this.size);
+  }
+
+  goToPage(pageNum: number) {
+    this.page = pageNum;
+    this.getAll(this.page, this.size);
   }
 }

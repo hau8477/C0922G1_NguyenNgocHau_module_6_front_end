@@ -12,8 +12,8 @@ export class CarService {
   constructor(private http: HttpClient) {
   }
 
-  getAll(): Observable<Car[]> {
-    return this.http.get<Car[]>(this.API_URL);
+  getAll(page: number, size: number): Observable<Car[]> {
+    return this.http.get<Car[]>(this.API_URL + '?page=' + page + '&size=' + size);
   }
 
   findById(id: number): Observable<Car> {

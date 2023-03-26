@@ -50,8 +50,8 @@ export class CarEditComponent implements OnInit {
           endCity: new FormControl(this.cities.find(i => i.id === this.carEdit.startCity.id), Validators.required),
           phoneNumber: new FormControl(this.carEdit.phoneNumber, [Validators.required, Validators.pattern('^(0)(9[0137]\\d{7})$')]),
           email: new FormControl(this.carEdit.email, [Validators.required, Validators.pattern('^[\\w._%+-]+@[\\w.-]+\\.[A-Za-z]{2,}$')]),
-          startHour: new FormControl(this.carEdit.startHour, Validators.required),
-          endHour: new FormControl(this.carEdit.endHour, Validators.required)
+          startHour: new FormControl('', [Validators.required, this.validateTimeFormat, this.validateTimeRange]),
+          endHour: new FormControl('', [Validators.required, this.validateTimeFormat, this.validateTimeRange])
         });
       });
     });
@@ -92,5 +92,22 @@ export class CarEditComponent implements OnInit {
       });
       console.log('Thất bại');
     });
+  }
+
+  validateTimeFormat(control: FormControl) {
+    const value = control.value;
+    if (value && !/^\d{2}:\d{2}$/.test(value)) {
+      return { invalidTimeFormat: true };
+    }
+    return null;
+  }
+
+  validateTimeRange(control: FormControl) {
+    const value = control.value;
+    const time = new Date(`2000-01-01T${value}:00`);
+    if (time.getHours() < 5 || time.getHours() >= 23) {
+      return { invalidTimeRange: true };
+    }
+    return null;
   }
 }
