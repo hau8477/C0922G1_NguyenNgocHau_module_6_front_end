@@ -66,7 +66,9 @@
                 </div>
                 <hr>
                 <div class="col-md-12 d-flex justify-content-center">
-                    <button type="button">Đăng ký đề tài</button>
+                    <button type="button" class="shadow1 bt-xl" data-bs-toggle="modal" data-bs-target="#createProject">
+                        Đăng ký đề tài
+                    </button>
                 </div>
             </div>
             <div class="col-md-8 bd-left bga">
@@ -169,21 +171,12 @@
                                         <nav aria-label="Page navigation example">
                                             <ul class="pagination justify-content-end">
                                                 <li class="page-item"><a class="page-link text-info text-info" href="#">Trang
-                                                    đầu</a></li>
-                                                <li class="page-item"><a class="page-link text-info text-info" href="#">< </a>
-                                                </li>
+                                                    trước</a></li>
                                                 <li class="page-item active text-info"><a class="page-link text-info"
                                                                                           href="#"
-                                                                                          style="font-weight: bold; background-color: #CFF4FC; border: 1px solid #DEE2E6">1</a>
-                                                </li>
-                                                <li class="page-item"><a class="page-link text-info text-info" href="#">2</a>
-                                                </li>
-                                                <li class="page-item"><a class="page-link text-info text-info" href="#">3</a>
-                                                </li>
-                                                <li class="page-item"><a class="page-link text-info text-info" href="#">> </a>
-                                                </li>
+                                                                                          style="font-weight: bold; background-color: #CFF4FC; border: 1px solid #DEE2E6">1/5</a>
                                                 <li class="page-item"><a class="page-link text-info text-info" href="#">Trang
-                                                    cuối</a></li>
+                                                    sau</a></li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -201,7 +194,23 @@
 </div>
 </div>
 </div>
-
+<div class="modal fade" id="createProject" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-success">
+                    Đăng ký đề tài thành công
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>

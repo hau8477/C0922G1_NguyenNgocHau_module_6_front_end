@@ -13,7 +13,7 @@
 <div class="container-fluid">
     <div class="row title">
         <div class="d-flex justify-content-center bgc">
-            <h2><b>ĐĂNG KÝ THÀNH VIÊN NHÓM</b></h2>
+            <h2><b>ĐĂNG KÝ NHÓM SINH VIÊN</b></h2>
         </div>
     </div>
     <hr>
@@ -38,12 +38,12 @@
     <hr>
     <div class="grid fs">
         <div class="row">
-            <div class="col-md-8 bga">
+            <div class="col-md-8 bga col-sm-8">
                 <div class="col-md-12 d-flex justify-content-center mg-down">
                     <h4 class="text-color">Danh sách thành viên sẽ tham gia nhóm</h4>
                 </div>
                 <div class="row shadow1">
-                    <div class="col-md-3 fs">
+                    <div class="col-md-3 col-sm-2 fs">
                         <div class="card">
                             <div>
                                 <img src="https://smilemedia.vn/wp-content/uploads/2022/09/cach-chup-hinh-the-dep.jpeg"
@@ -63,7 +63,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 fs">
+                    <div class="col-md-3 col-sm-2 fs">
                         <div class="card">
                             <div>
                                 <img src="https://bizweb.dktcdn.net/thumb/1024x1024/100/301/794/products/tiem-anh-mau-sieu-toc-phuong-321041.jpg?v=1615433142020"
@@ -83,11 +83,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 fs">
+                    <div class="col-md-3 col-sm-2 fs">
                         <div class="card">
                             <div>
                                 <img src="https://toigingiuvedep.vn/wp-content/uploads/2021/07/mau-anh-the-dep-lam-the-can-cuoc.jpg"
-                                     class="card-img-top img-card"  alt="...">
+                                     class="card-img-top img-card" alt="...">
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title text-color">Dương Văn Linh</h5>
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 fs">
+                    <div class="col-md-3 col-sm-2 fs">
                         <div class="card">
                             <div>
                                 <img src="https://toplist.vn/images/800px/do-do-studios-321551.jpg"
@@ -123,7 +123,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 fs">
+                    <div class="col-md-3 col-sm-2 fs">
                         <div class="card">
                             <div>
                                 <img src="https://toplist.vn/images/800px/kamiwedding-316252.jpg"
@@ -143,30 +143,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 fs">
-                        <div class="card">
-                            <div>
-                                <img src="https://ss-images.saostar.vn/wp700/pc/1617160792140/saostar-ad0lx1k2h7n0blgh.jpg"
-                                     class="card-img-top img-card" alt="..." width="227.59" height="284.2px">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title text-color">Trần Thị Lung Linh</h5>
-                                <p class="card-text"></p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><b>MSSV: </b>3574</li>
-                                <li class="list-group-item"><b>Ngày sinh </b>: 11/10/2004</li>
-                                <li class="list-group-item"><b>Email</b>: linhtran@gmail.com</li>
-                            </ul>
-                            <div class="card-body d-flex justify-content-center">
-                                <button type="button" class=" btn-outline-danger btn-xs">Hủy đăng ký</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <hr>
                 <div class="col-md-12 d-flex justify-content-center">
-                    <button class="shadow1 bt-xl" type="button">Tạo nhóm</button>
+                    <button type="button" class="shadow1 bt-xl" data-bs-toggle="modal" data-bs-target="#createTeam">
+                        Tạo nhóm
+                    </button>
                 </div>
             </div>
             <div class="col-md-4 bd-left bga">
@@ -263,6 +245,22 @@
                         </div>
                     </div>
                 </div>
+                <div class="container mg-top">
+                    <div class="row">
+                        <div class="d-flex justify-content-center">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-end">
+                                    <li class="page-item"><a class="page-link text-info text-info" href="#">Trang
+                                        trước</a></li>
+                                    <li class="page-item active text-info"><a class="page-link text-info"
+                                                                              style="font-weight: bold; background-color: #CFF4FC; border: 1px solid #DEE2E6">1/5</a>
+                                    <li class="page-item"><a class="page-link text-info text-info" href="#">Trang
+                                        sau</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -270,6 +268,26 @@
 </div>
 </div>
 
+
+<div class="modal fade" id="createTeam" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Nhập tên nhóm</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group flex-nowrap">
+                    <input type="text" class="bg" aria-label="Username" aria-describedby="addon-wrapping">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-outline-secondary" data-bs-dismiss="modal">Thoát</button>
+                <button type="button" class="">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>

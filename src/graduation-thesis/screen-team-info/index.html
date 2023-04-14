@@ -160,18 +160,57 @@
                         </div>
                     </div>
                 </div>
+                <div class="container mg-top">
+                    <div class="row">
+                        <div class="d-flex justify-content-center">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-end">
+                                    <li class="page-item"><a class="page-link text-info text-info" href="#">Trang
+                                        trước</a></li>
+                                    <li class="page-item active text-info"><a class="page-link text-info"
+                                                                              href="#"
+                                                                              style="font-weight: bold; background-color: #CFF4FC; border: 1px solid #DEE2E6">1/5</a>
+                                    <li class="page-item"><a class="page-link text-info text-info" href="#">Trang
+                                        sau</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
                 <hr>
                 <div class="col-md-12 d-flex justify-content-center">
                     <h2 class="text-danger">Hiện tại nhóm của bạn chưa có đề tài nào!</h2>
                 </div>
                 <div class="col-md-12 d-flex justify-content-center">
-                    <button class="shadow1 bt-xl" type="button">Đăng ký đề tài</button>
+                    <button type="button" class="shadow1 bt-xl" data-bs-toggle="modal" data-bs-target="#registerProject">
+                        Đăng ký đề tài
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 </div>
+</div>
+
+<div class="modal fade" id="registerProject" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Nhập tên đề tài</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group flex-nowrap">
+                    <input type="text" class="bg" aria-label="Username" aria-describedby="addon-wrapping">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-outline-secondary" data-bs-dismiss="modal">Thoát</button>
+                <button type="button" class="">Lưu</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 
